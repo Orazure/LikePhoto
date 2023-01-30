@@ -1,20 +1,41 @@
 package com.example.likphoto.API
 
+import com.google.gson.GsonBuilder
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okio.IOException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
+
 
 public object RetrofitApi {
+
+    private val TOKEN="5iKEFP32NKFgPXtGI49ZP08M2Hs3zqoLDk7SUz-VWIY"
     fun getService(): RepoApi {
         val retrofitBuilder = Retrofit.Builder()
 
-        val okHttpClient = OkHttpClient.Builder()
+
+        val okHttpClient = OkHttpClient.Builder().addInterceptor(object : Interceptor {
+            @Throws(IOException::class)
+            override fun intercept(chain: Interceptor.Chain): Response {
+                val newRequest: Request = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer "+ TOKEN)
+                    .build()
+                return chain.proceed(newRequest)
+            }
+        })
 
         retrofitBuilder.client(okHttpClient.build())
+        // json converter
+
 
         val retrofit = retrofitBuilder
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://api.unsplash.com/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .build()
 
         return retrofit.create(RepoApi::class.java)

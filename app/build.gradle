@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.example.likphoto"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -54,4 +54,14 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation "io.coil-kt:coil:1.1.1"
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'uk.bandev:xplosion:1.0.7'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+
+
+
+
 }

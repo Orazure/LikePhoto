@@ -2,6 +2,7 @@ package com.example.likphoto.models
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import com.example.likphoto.models.Urls
 
 
 @Keep
@@ -36,6 +37,11 @@ data class Pictures(
     val currentUserCollections: List<Any>,
     @SerializedName("sponsorship")
     val sponsorship: Any,
-    @SerializedName("user")
-    val user: String
+    @SerializedName("views")
+    val views: Int,
+    @SerializedName("downloads")
+    val downloads: Int,
+    // from urls get raw image
+    @SerializedName("urls")
+    val urls: Urls
 )
