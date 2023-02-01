@@ -14,6 +14,9 @@ data class PictureTable (
     @ColumnInfo(name = "description")
     var description: String,
 
+    @ColumnInfo(name = "alt_description")
+    var alt_description: String,
+
     @ColumnInfo(name = "urls")
     var urls: String,
 
@@ -22,4 +25,6 @@ data class PictureTable (
 
     @ColumnInfo(name = "liked_by_user")
     var liked_by_user: Boolean
+
+
 )

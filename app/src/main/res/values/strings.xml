@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LikPhoto</string>
+    <string name="see_my_fav_photos">See my fav photos</string>
+    <string name="see_photos">See photos</string>
+    <string name="bienvenue_sur_likphoto">Bienvenue sur LikPhoto</string>
+    <string name="textview">TextView</string>
+    <string name="number_of_like">Number of like :</string>
 </resources>

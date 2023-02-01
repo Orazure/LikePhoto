@@ -13,7 +13,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 public object RetrofitApi {
 
-    private val TOKEN="5iKEFP32NKFgPXtGI49ZP08M2Hs3zqoLDk7SUz-VWIY"
+    private val TOKEN="69MH3TQiKiIrmww6Ibe1cBJdczgd8hjypwkXyHuMqN0"
     fun getService(): RepoApi {
         val retrofitBuilder = Retrofit.Builder()
 

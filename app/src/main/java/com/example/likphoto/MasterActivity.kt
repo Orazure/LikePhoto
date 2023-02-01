@@ -2,9 +2,14 @@ package com.example.likphoto
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.likphoto.databinding.MasterViewXmlBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MasterActivity : AppCompatActivity() {
 
@@ -26,5 +31,56 @@ class MasterActivity : AppCompatActivity() {
             val intent = Intent(this, FavActivity::class.java)
             startActivity(intent)
         }
+
+        val isSelect=intent.getStringExtra("isSelect")
+        if(isSelect=="true"){
+            // R.id.favActivity set to true
+            binding.bottomNavigatinView.selectedItemId=R.id.masterActivity
+        }
+        binding.bottomNavigatinView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.mainActivity -> {
+                    setContent("Home")
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("isSelect", "true")
+                    startActivity(intent)
+                    true
+                }
+                R.id.masterActivity -> {
+                    setContent("Notification")
+                    val intent = Intent(this, MasterActivity::class.java)
+                    intent.putExtra("isSelect", "true")
+                    startActivity(intent)
+                    true
+                }
+                R.id.favActivity -> {
+                    setContent("Activity")
+                    val intent = Intent(this, FavActivity::class.java)
+                    // send isSelect to FavActivity
+                    intent.putExtra("isSelect", "true")
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
+
+
+        // put listener on search_by_index button to search by index
+        binding.searchByIndex.setOnClickListener {
+            val index = binding.searchByIndex.text.toString()
+            if (index.isNotEmpty()) {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("index", index)
+                startActivity(intent)
+            }
+        }
+
+
+    }
+
+    private fun setContent(content: String) {
+        setTitle(content)
     }
 }

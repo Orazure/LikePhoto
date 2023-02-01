@@ -6,10 +6,11 @@ import android.os.Bundle
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.likphoto.API.RetrofitViewModel
 import com.example.likphoto.bdd.DAO.PictureDao
 import com.example.likphoto.bdd.ModelEntity.PictureTable
 
-@Database(entities = [PictureTable::class], version = 1)
+@Database(entities = [PictureTable::class], version =2)
 abstract class DatabasePicture :RoomDatabase() {
     abstract fun getPictureDao(): PictureDao
 

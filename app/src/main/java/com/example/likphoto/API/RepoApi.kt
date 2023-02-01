@@ -2,6 +2,7 @@ package com.example.likphoto.API
 
 import android.telecom.Call
 import com.example.likphoto.API.RetrofitApi
+import com.example.likphoto.models.IndexSearch
 import com.example.likphoto.models.Pictures
 import retrofit2.http.*
 
@@ -27,9 +28,16 @@ public interface RepoApi {
     suspend fun unlikePicture(@Path("id") id: String) : Pictures
 
     // get liked pictures
-    @GET("users/alex_wizz/likes")
+    @GET("users/wizz_/likes")
     suspend fun getLikedPictures(): List<Pictures>
 
+    // get photo by id
+    @GET("photos/{id}")
+    suspend fun getPhotoById(@Path("id") id: String): Pictures
+
+    // search by index of photo with 1 page , the picture is in results
+    @GET("search/photos")
+    suspend fun searchPhoto(@Query("query") query: String, @Query("page") page: Int):IndexSearch
 
 
 

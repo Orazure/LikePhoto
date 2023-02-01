@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_onglet"
+    app:startDestination="@id/masterActivity">
+
+    <activity
+        android:id="@+id/masterActivity2"
+        android:name="com.example.likphoto.MasterActivity"
+        android:label="MasterActivity" />
+    <activity
+        android:id="@+id/favActivity2"
+        android:name="com.example.likphoto.FavActivity"
+        android:label="FavActivity" />
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.example.likphoto.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>

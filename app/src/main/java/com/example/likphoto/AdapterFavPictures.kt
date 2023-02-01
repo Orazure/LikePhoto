@@ -42,6 +42,7 @@ class AdapterFavPictures(private var userList: List<Pictures>, private var ApiVi
             // change appareance of fav button if picture is liked
 
             // if picture is liked
+            println("bind${pictures.likedByUser}")
             if (pictures.likedByUser){
                 binding.likeHeart.isSelected = true
             }
@@ -64,9 +65,11 @@ class AdapterFavPictures(private var userList: List<Pictures>, private var ApiVi
             binding.imageViewFav.setOnClickListener{
                 val intent= Intent(itemView.context,DetailsPictures::class.java)
                 intent.putExtra("url",pictures.urls.regular)
+                intent.putExtra("desc",pictures.altDescription)
                 // if i like the picture i will send the id of the picture to details activity
                 intent.putExtra("id",pictures.id)
                 intent.putExtra("is_liked",pictures.likedByUser)
+                intent.putExtra("number_of_likes",pictures.likes.toString())
                 itemView.context.startActivity(intent)
             }
         }

@@ -36,12 +36,10 @@ interface PictureDao {
         suspend fun deleteDataById(id: String)
 
         // update number of likes by id
-        @Query("UPDATE picture_table SET likes = :likes WHERE id_photos = :id")
-        suspend fun updateLikesById(id: String, likes: Int)
 
         // update unlike by id
-        @Query("UPDATE picture_table SET liked_by_user = :liked_by_user WHERE id_photos = :id")
-        suspend fun updateUnlikeById(id: String, liked_by_user: Boolean)
+        @Query("UPDATE picture_table SET liked_by_user = 'false' WHERE id_photos = :id")
+        suspend fun updateUnlikeById(id: String)
 
 
 }

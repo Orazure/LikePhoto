@@ -8,19 +8,20 @@
 
     <ImageView
         android:id="@+id/imageView_fav"
-        android:layout_width="292dp"
-        android:layout_height="442dp"
+        android:layout_width="366dp"
+        android:layout_height="569dp"
         android:layout_marginStart="143dp"
         android:layout_marginTop="176dp"
         android:layout_marginEnd="140dp"
         android:layout_marginBottom="113dp"
         android:contentDescription="TODO"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.913"
         tools:srcCompat="@tools:sample/avatars" />
 
     <uk.bandev.xplosion.XplosionView
@@ -28,8 +29,8 @@
         android:id="@+id/like_heart"
         android:layout_width="56dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView_fav"
         app:layout_constraintEnd_toEndOf="@+id/imageView_fav"
         tools:ignore="MissingConstraints">
@@ -43,6 +44,7 @@
             android:text="Hello World!" />
 
     </uk.bandev.xplosion.XplosionView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

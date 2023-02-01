@@ -44,11 +44,12 @@ class AdapterPictures(private var userList : List<Pictures>):RecyclerView.Adapte
 
 
         fun bind(pictures: Pictures) {
-
+            println("bind$pictures")
             binding.imageView2.load(pictures.urls.regular)
             binding.imageView2.setOnClickListener{
                 val intent= Intent(itemView.context,DetailsPictures::class.java)
                 intent.putExtra("url",pictures.urls.regular)
+                intent.putExtra("desc",pictures.altDescription)
                 intent.putExtra("id",pictures.id)
                 intent.putExtra("number_of_likes",pictures.likes.toString())
                 itemView.context.startActivity(intent)
