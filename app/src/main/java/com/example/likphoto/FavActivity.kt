@@ -1,6 +1,5 @@
 package com.example.likphoto
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,9 +10,7 @@ import com.example.likphoto.API.UserViewModelFactory
 import com.example.likphoto.bdd.DAO.PictureDao
 import com.example.likphoto.bdd.DatabasePicture
 import com.example.likphoto.bdd.Model.PictureRepo
-import com.example.likphoto.databinding.ActivityMainBinding
 import com.example.likphoto.databinding.FavViewBinding
-import com.example.likphoto.models.Pictures
 
 class FavActivity : AppCompatActivity()  {
 

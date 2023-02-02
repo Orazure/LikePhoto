@@ -1,21 +1,14 @@
 package com.example.likphoto
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.TextView
-
 import com.example.likphoto.databinding.ImageViewBinding
-
-
 import com.example.likphoto.models.Pictures
 
 class AdapterPictures(private var userList : List<Pictures>):RecyclerView.Adapter<AdapterPictures.MyViewHolder>() {

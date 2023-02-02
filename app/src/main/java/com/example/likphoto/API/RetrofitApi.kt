@@ -29,7 +29,7 @@ public object RetrofitApi {
         })
 
         retrofitBuilder.client(okHttpClient.build())
-        // json converter
+
 
 
         val retrofit = retrofitBuilder

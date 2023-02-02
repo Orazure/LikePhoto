@@ -1,7 +1,5 @@
 package com.example.likphoto.API
 
-import android.telecom.Call
-import com.example.likphoto.API.RetrofitApi
 import com.example.likphoto.models.IndexSearch
 import com.example.likphoto.models.Pictures
 import retrofit2.http.*

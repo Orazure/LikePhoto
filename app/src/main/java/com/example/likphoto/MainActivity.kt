@@ -2,13 +2,9 @@ package com.example.likphoto
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import coil.load
 import com.example.likphoto.API.RetrofitApi
 import com.example.likphoto.API.RetrofitViewModel
 import com.example.likphoto.API.UserViewModelFactory
@@ -16,7 +12,6 @@ import com.example.likphoto.bdd.DAO.PictureDao
 import com.example.likphoto.bdd.DatabasePicture
 import com.example.likphoto.bdd.Model.PictureRepo
 import com.example.likphoto.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {

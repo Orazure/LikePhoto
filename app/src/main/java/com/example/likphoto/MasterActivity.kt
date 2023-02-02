@@ -2,14 +2,8 @@ package com.example.likphoto
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.likphoto.databinding.MasterViewXmlBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MasterActivity : AppCompatActivity() {
 
