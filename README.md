@@ -35,21 +35,21 @@ The endpoints used are :
 
 ## Screenshots
 
-![home_screen.png](docs/home_screen.png)
+![home_screen.png](docs/home_screen.png){:height="50%" width="50%"}
 This is the home screen of the app.
 The user can :
 - Search photos by keyword
 - Display liked photos by clicking on the `See my fav photos` button
 - Display photos by clicking on the `See photos` button
 
-![ramdom_pictures.png](docs/ramdom_pictures.png)
+![ramdom_pictures.png](docs/ramdom_pictures.png){:height="50%" width="50%"}
 This is the screen where the user can see the photos.
 
-![details_photo.png](docs/details_photo.png)
+![details_photo.png](docs/details_photo.png){:height="50%" width="50%"}
 This is the screen where the user can see the details of a photo.
 The screen contains the photo's description, the number of like and a button to like or unlike the photo.
 
-![fav_picture.png](docs/fav_picture.png)
+![fav_picture.png](docs/fav_picture.png){:height="50%" width="50%"}
 This is the screen where the user can see the liked photos.
 
 
