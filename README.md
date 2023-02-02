@@ -1,4 +1,4 @@
-# LikPhoto - A simple photo gallery app for Android devices build with Kotlin
+# :camera_flash: LikPhoto - A simple photo gallery app for Android devices build with Kotlin
 > Images are provided by [Unsplash](https://unsplash.com/)
 ## Features
 
