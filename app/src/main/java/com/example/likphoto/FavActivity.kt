@@ -17,9 +17,11 @@ class FavActivity : AppCompatActivity()  {
     private lateinit var binding: FavViewBinding
     private lateinit var ApiViewModel: RetrofitViewModel
     private lateinit var adapter: AdapterFavPictures
-
+    // count =1
+    private var count = 1
     private lateinit var dao: PictureDao
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = FavViewBinding.inflate(layoutInflater)
         val view = binding.root

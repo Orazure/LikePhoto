@@ -73,13 +73,29 @@ class RetrofitViewModel(private val repo:PictureRepo) : ViewModel() {
     fun likePicture(id:String){
         viewModelScope.launch {
             // like picture
-            val likedPicture = Api.likePicture(id)
-            val getInfoPicture=Api.getPhotoById(id)
-            val noDesc=if(getInfoPicture.description==null) "" else getInfoPicture.description
-            val noAltDesc=if(getInfoPicture.altDescription==null) "" else getInfoPicture.altDescription
-            val picture = PictureTable(getInfoPicture.id,noDesc,noAltDesc,getInfoPicture.urls.regular,getInfoPicture.likes,getInfoPicture.likedByUser)
-            repo.insertPicture(picture)
-            _data.value = listOf(likedPicture)
+            // if i not like before
+            if(!repo.isPictureExist(id)) {
+                val likedPicture = Api.likePicture(id)
+                val getInfoPicture = Api.getPhotoById(id)
+                val noDesc =
+                    if (getInfoPicture.description == null) "" else getInfoPicture.description
+                val noAltDesc =
+                    if (getInfoPicture.altDescription == null) "" else getInfoPicture.altDescription
+                val picture = PictureTable(
+                    getInfoPicture.id,
+                    noDesc,
+                    noAltDesc,
+                    getInfoPicture.urls.regular,
+                    getInfoPicture.likes,
+                    getInfoPicture.likedByUser
+                )
+                repo.insertPicture(picture)
+                _data.value = listOf(likedPicture)
+            }else{
+                // send is already liked
+                val likedPicture = Api.likePicture(id)
+                _data.value = listOf(likedPicture)
+            }
         }
     }
 
@@ -87,12 +103,19 @@ class RetrofitViewModel(private val repo:PictureRepo) : ViewModel() {
     fun unlikePicture(id:String){
         viewModelScope.launch {
             // response of list of pictures from unsplash
-            val response=Api.unlikePicture(id)
-            repo.deletePicture(response.id)
+            Api.unlikePicture(id)
+            repo.deletePicture(id)
             listOf(Api.unlikePicture(id))
         }
     }
 
+    fun deleteAll(){
+        viewModelScope.launch {
+            println("delete all")
+            // delete all pictures from database and after call thread sleep
+            repo.clearAllData()
+        }
+    }
     // function to get liked pictures
     fun getLikedPictures(){
         viewModelScope.launch {
@@ -100,19 +123,30 @@ class RetrofitViewModel(private val repo:PictureRepo) : ViewModel() {
             val responseFromDb=repo.getPicture()
             val response=Api.getLikedPictures()
             if(responseFromDb.isEmpty()){
-                // get all pictures in list
-
+                println("is empty db")
+                response.forEach {
+                    val notDesc=it.description ?: "pas de description"
+                    val notAltDesc=it.altDescription ?: "pas de description"
+                    repo.insertPicture(PictureTable(it.id,notDesc,notAltDesc,it.urls.regular,it.likes,it.likedByUser))
+                }
                 _data.value=response.map {
                     Pictures(it.id,"","","",0,0,"","",it.description ?: "",it.altDescription ?:"", listOf(),it.likes,it.likedByUser,
                         listOf(),"",0,0, Urls("","",it.urls.regular,"",""))
                 }
             }else{
+                println("is not empty db")
                 // insert pictures if not exist in database
                 responseFromDb.forEach {
-                    val response=Api.getLikedPictures()
                     response.forEach { picture ->
                         // print the picture
-                        println(picture)
+                        // if the picture match with the picture in database
+                        // set the liked by user to true
+                        if(!it.liked_by_user){
+                            repo.deletePicture(it.id)
+                        }
+                        if(picture.id==it.id){
+                            repo.updatePictureWithId(picture.id,true)
+                        }
                         if(picture.id!=it.id){
                             val notDesc=picture.description ?: "pas de description"
                             val notAltDesc=picture.altDescription ?: "pas de description"

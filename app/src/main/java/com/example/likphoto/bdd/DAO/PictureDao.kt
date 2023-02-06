@@ -21,7 +21,9 @@ interface PictureDao {
         @Query("DELETE FROM picture_table")
         suspend fun deleteAllData()
 
-        @Query("SELECT * FROM picture_table")
+
+        //only if liked_by_user = true
+        @Query("SELECT * FROM picture_table WHERE liked_by_user = 1")
         suspend fun getAllData(): List<PictureTable>
 
         // delete data by id
@@ -30,9 +32,10 @@ interface PictureDao {
 
         // update number of likes by id
 
-        // update unlike by id
-        @Query("UPDATE picture_table SET liked_by_user = 'false' WHERE id_photos = :id")
-        suspend fun updateUnlikeById(id: String)
+        // update picture with id
+        @Query("UPDATE picture_table SET liked_by_user = :liked WHERE id_photos = :id")
+        suspend fun updateDataWithId(id: String, liked: Boolean)
+
 
 
 }

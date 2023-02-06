@@ -1,6 +1,7 @@
 package com.example.likphoto
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +17,15 @@ import com.example.likphoto.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val PREFERENCE_KEY_FIRST_LAUNCH = "first_launch"
+    }
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var ApiViewModel: RetrofitViewModel
     private lateinit var adapter: AdapterPictures
     private lateinit var dao: PictureDao
-
+    private var isFirstLaunch = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -66,7 +71,17 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+        val preferences = getPreferences(Context.MODE_PRIVATE)
+        if (preferences.getBoolean(PREFERENCE_KEY_FIRST_LAUNCH, true)) {
+            executeFunction()
+            preferences.edit().putBoolean(PREFERENCE_KEY_FIRST_LAUNCH, false).apply()
+        }
 
+    }
+
+    private fun executeFunction() {
+        println("dans le delete all")
+        ApiViewModel.deleteAll()
     }
     private fun setContent(content: String) {
         setTitle(content)

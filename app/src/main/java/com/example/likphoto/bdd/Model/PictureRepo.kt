@@ -23,6 +23,20 @@ class PictureRepo(private val service :RepoApi,private val dao: PictureDao) {
         dao.updateData(picture)
     }
 
+    // update picture with id
+    suspend fun updatePictureWithId(id: String, liked: Boolean) {
+        dao.updateDataWithId(id, liked)
+    }
+
+    //isPictureExist
+    suspend fun isPictureExist(id: String): Boolean {
+        return dao.getPictureDetails(id).isNotEmpty()
+    }
+    // clear all data
+    suspend fun clearAllData() {
+        dao.deleteAllData()
+    }
+
     // unlike picture
 
 

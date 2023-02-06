@@ -36,6 +36,7 @@ class AdapterFavPictures(private var userList: List<Pictures>, private var ApiVi
 
         private val binding : FavButtonImageViewBinding = FavButtonImageViewBinding.bind(itemView)
 
+        @SuppressLint("NotifyDataSetChanged")
         fun bind(pictures: Pictures) {
 
             binding.imageViewFav.load(pictures.urls.regular)
@@ -58,7 +59,6 @@ class AdapterFavPictures(private var userList: List<Pictures>, private var ApiVi
                     notifyDataSetChanged()
                     userList=listNew
                     notifyDataSetChanged()
-
                     ApiViewModel.unlikePicture(id)
                 }
             }

@@ -10,6 +10,7 @@ public interface RepoApi {
 
     // get pictures from unsplash with API key
     @GET("photos")
+
     suspend fun getData(): List<Pictures>
 
     // get pictures from unsplash with API key

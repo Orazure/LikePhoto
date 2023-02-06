@@ -9,6 +9,7 @@ class MasterActivity : AppCompatActivity() {
 
     private lateinit var binding: MasterViewXmlBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MasterViewXmlBinding.inflate(layoutInflater)
