@@ -19,7 +19,7 @@ The release APK is available [here](https://github.com/Orazure/LikePhoto/release
   - i used the room database to store the liked photos
     - when i unlike a photo from random photos screen if the photo is in the liked photos, it's removed from the liked photos screen
 - [x] Clear cache
-  - When i start the app, the cache is cleared (with const val CACHE_SIZE = 0) ref commit:a3c5bd12149a7d6f6257e12e7bc585529866b6f7 (on MainActivity.kt)
+  - When i start the app, the cache is cleared (with const val CACHE_SIZE = 0) ref commit:[a3c5bd1](https://github.com/Orazure/LikePhoto/commit/a3c5bd12149a7d6f6257e12e7bc585529866b6f7) (on MainActivity.kt)
 
 The endpoints used are :
 - [Get a list of photos](https://unsplash.com/documentation#list-photos)
