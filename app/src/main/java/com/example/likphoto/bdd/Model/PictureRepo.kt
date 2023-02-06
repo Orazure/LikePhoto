@@ -16,7 +16,10 @@ class PictureRepo(private val service :RepoApi,private val dao: PictureDao) {
     }
 
     suspend fun deletePicture(id: String) {
-        dao.deleteDataById(id)
+        // if picture exist in database
+        if (isPictureExist(id)) {
+            dao.deleteDataById(id)
+        }
     }
 
     suspend fun updatePicture(picture: PictureTable) {

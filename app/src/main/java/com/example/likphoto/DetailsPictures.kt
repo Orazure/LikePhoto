@@ -50,6 +50,8 @@ class DetailsPictures : AppCompatActivity() {
         binding.unlikeBtn.setOnClickListener {
             if (id != null) {
                 viewModel.unlikePicture(id)
+                // update the number of likes
+                binding.nbLike.text = (likes?.toInt()?.minus(1)).toString()
             }
         }
     }

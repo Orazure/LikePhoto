@@ -27,7 +27,7 @@ public interface RepoApi {
     suspend fun unlikePicture(@Path("id") id: String) : Pictures
 
     // get liked pictures
-    @GET("users/wizz_/likes")
+    @GET("users/alex_wizz/likes")
     suspend fun getLikedPictures(): List<Pictures>
 
     // get photo by id

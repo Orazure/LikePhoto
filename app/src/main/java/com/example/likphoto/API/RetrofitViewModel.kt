@@ -105,7 +105,6 @@ class RetrofitViewModel(private val repo:PictureRepo) : ViewModel() {
             // response of list of pictures from unsplash
             Api.unlikePicture(id)
             repo.deletePicture(id)
-            listOf(Api.unlikePicture(id))
         }
     }
 
